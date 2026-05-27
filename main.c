@@ -9,7 +9,7 @@ struct Contato {
 
 int main() {
     int opcao = 0;
-
+    struct Contato c;
     while(opcao != 6) {
         printf("Bem-vindo(a) à Agenda de Contatos\n");
         printf("3--------------------------------3 \n");
@@ -23,7 +23,13 @@ int main() {
 
         switch(opcao) {
             case 1:
-                // lógica de adicionar um novo contato
+                // Informar o nome do novo contato
+                printf("Digite o nome do novo contato: \n");
+                scanf("%20s", &(c.nome));
+
+                // informar o telefone do novo contato
+                printf("Digite o telefone do novo contato: \n");
+                scanf("%17s", &(c.telefone));
                 break;
             case 2:
                 // excluir um contato
