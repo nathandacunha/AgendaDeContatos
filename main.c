@@ -1,14 +1,15 @@
 #include <stdio.h>
+#define TAMANHO_CONTATOS 100
 
 struct Contato {
     char nome[25];
     char telefone[17];
-    int tipoDeContato[20];
+    char tipoDeContato[20];
 };
 
 int main() {
     int opcao, id = 0;
-    struct Contato c;
+    struct Contato c[TAMANHO_CONTATOS];
     while(opcao != 6) {
         printf("Bem-vindo(a) à Agenda de Contatos\n");
         printf("3--------------------------------3 \n");
@@ -24,16 +25,16 @@ int main() {
             case 1:
                 // Informar o nome do novo contato
                 printf("Digite o nome do novo contato: \n");
-                scanf("%20s", &(c.nome));
+                scanf("%20s", &(c[id].nome));
 
                 // informar o telefone do novo contato
                 printf("Digite o telefone do novo contato: \n");
-                scanf("%17s", &(c.telefone));
+                scanf("%17s", &(c[id].telefone));
 
-                printf("Escolha o tipo de contato: \n");
+                printf("Digite o tipo de contato disponiveis: \n");
                 printf("[1] - Pessoal \n");
                 printf("[2] - Trabalho \n");
-                scanf("%d", &(c.tipoDeContato));
+                scanf("%20s", &(c[id].tipoDeContato));
 
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
@@ -51,9 +52,9 @@ int main() {
                 printf("Lista de contatos\n");
                 for(int i = 0; i < id; i++) {
                     printf("Id: %d\n", id);
-                    printf("Nome: %20s\n", &(c.nome));
-                    printf("Telefone: %17s\n", &(c.telefone));
-                    printf("Tipo de contato: %d\n", &(c.tipoDeContato));
+                    printf("Nome: %20s\n", &(c[i].nome));
+                    printf("Telefone: %17s\n", &(c[i].telefone));
+                    printf("Tipo de contato: %20s\n", &(c[i].tipoDeContato));
                 }
                 break;
             case 5:
