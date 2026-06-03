@@ -1,14 +1,13 @@
 #include <stdio.h>
 
 struct Contato {
-    int id;
     char nome[25];
     char telefone[17];
     int tipoDeContato;
 };
 
 int main() {
-    int opcao = 0;
+    int opcao, id = 0;
     struct Contato c;
     while(opcao != 6) {
         printf("Bem-vindo(a) à Agenda de Contatos\n");
@@ -39,6 +38,8 @@ int main() {
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
                 printf("3--------------------------------3\n");
+
+                id++;
                 break;
             case 2:
                 // excluir um contato
