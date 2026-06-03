@@ -30,6 +30,15 @@ int main() {
                 // informar o telefone do novo contato
                 printf("Digite o telefone do novo contato: \n");
                 scanf("%17s", &(c.telefone));
+
+                printf("Escolha o tipo de contato: \n");
+                printf("[1] - Pessoal \n");
+                printf("[2] - Trabalho \n");
+                scanf("%d", &(c.tipoDeContato));
+
+                printf("3--------------------------------3 \n");
+                printf("Contato adicionado com sucesso!\n");
+                printf("3--------------------------------3\n");
                 break;
             case 2:
                 // excluir um contato
@@ -44,6 +53,7 @@ int main() {
                 // localizar um contato
                 break;
             case 6:
+                printf("Programa encerrado!\n");
                 break;
             default: 
                 printf("Erro!");
