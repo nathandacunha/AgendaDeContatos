@@ -3,7 +3,7 @@
 struct Contato {
     char nome[25];
     char telefone[17];
-    int tipoDeContato;
+    int tipoDeContato[20];
 };
 
 int main() {
@@ -48,7 +48,13 @@ int main() {
                 // alterar um contato
                 break;
             case 4:
-                // listar todos os contatos
+                printf("Lista de contatos\n");
+                for(int i = 0; i < id; i++) {
+                    printf("Id: %d\n", id);
+                    printf("Nome: %20s\n", &(c.nome));
+                    printf("Telefone: %17s\n", &(c.telefone));
+                    printf("Tipo de contato: %d\n", &(c.tipoDeContato));
+                }
                 break;
             case 5:
                 // localizar um contato
