@@ -1,5 +1,10 @@
+// importação de bibliotecas + variáveis constantes
+
 #include <stdio.h>
-#define TAMANHO_CONTATOS 100
+#include <stdlib.h>
+#define TAMANHO_CONTATOS 50
+
+// structs
 
 struct Contato {
     char nome[25];
@@ -7,11 +12,13 @@ struct Contato {
     char tipoDeContato[20];
 };
 
+// programa principal
 int main() {
-    int opcao, id = 0;
+    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0;
     struct Contato c[TAMANHO_CONTATOS];
+
     while(opcao != 6) {
-        printf("Bem-vindo(a) à Agenda de Contatos\n");
+        printf("Bem-vindo(a) à Agenda de Contatos!\n");
         printf("3--------------------------------3 \n");
         printf("[1] - Adicionar novo contato \n");
         printf("[2] - Excluir um contato \n");
@@ -25,22 +32,22 @@ int main() {
             case 1:
                 // Informar o nome do novo contato
                 printf("Digite o nome do novo contato: \n");
-                scanf("%20s", &(c[id].nome));
+                scanf("%20s", c[id].nome);
 
                 // informar o telefone do novo contato
                 printf("Digite o telefone do novo contato: \n");
-                scanf("%17s", &(c[id].telefone));
+                scanf("%s", c[id].telefone);
 
-                printf("Digite o tipo de contato disponiveis: \n");
-                printf("[1] - Pessoal \n");
-                printf("[2] - Trabalho \n");
-                scanf("%20s", &(c[id].tipoDeContato));
+                // informar o tipo de contato
+                printf("Digite o tipo de contato: \n");
+                scanf("%s", c[id].tipoDeContato);
 
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
                 printf("3--------------------------------3\n");
 
                 id++;
+                usuariosCadastrados++;
                 break;
             case 2:
                 // excluir um contato
@@ -49,16 +56,36 @@ int main() {
                 // alterar um contato
                 break;
             case 4:
+                if(id <= 0) {
+                    printf("Não há nenhum usuário cadastrado");
+                    return;
+                }
+
                 printf("Lista de contatos\n");
                 for(int i = 0; i < id; i++) {
-                    printf("Id: %d\n", id);
-                    printf("Nome: %20s\n", &(c[i].nome));
-                    printf("Telefone: %17s\n", &(c[i].telefone));
-                    printf("Tipo de contato: %20s\n", &(c[i].tipoDeContato));
+                    printf("ID: %d\n", i + 1); // indice e não ID
+                    printf("Nome: %20s\n", c[i].nome);
+                    printf("Telefone: %17s\n", c[i].telefone);
+                    printf("Tipo de contato: %20s\n", c[i].tipoDeContato);
                 }
                 break;
             case 5:
-                // localizar um contato
+                // localizar um contato  
+                if(usuariosCadastrados <= 0) {
+                    printf("Não há nenhum usuário cadastrado");
+                    return 1;
+                }                
+
+                printf("Digite o id: \n");
+                scanf("%d", &buscarId);
+                
+                // Converter para índice interno (usuário vê 1, array começa em 0)
+                indice = buscarId - 1;
+
+                printf("ID: %d\n", buscarId); 
+                printf("Nome: %20s\n", c[indice].nome);
+                printf("Telefone: %17s\n", c[indice].telefone);
+                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
                 break;
             case 6:
                 printf("Programa encerrado!\n");
@@ -68,6 +95,5 @@ int main() {
                 break;
         }
     }
-
     return 0;
 }
