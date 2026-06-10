@@ -14,7 +14,7 @@ struct Contato {
 
 // programa principal
 int main() {
-    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0;
+    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0, excluirId = 0, escolhaExcluirContato;
     struct Contato c[TAMANHO_CONTATOS];
 
     while(opcao != 6) {
@@ -32,7 +32,7 @@ int main() {
             case 1:
                 // Informar o nome do novo contato
                 printf("Digite o nome do novo contato: \n");
-                scanf("%20s", c[id].nome);
+                scanf("%s", c[id].nome);
 
                 // informar o telefone do novo contato
                 printf("Digite o telefone do novo contato: \n");
@@ -51,14 +51,55 @@ int main() {
                 break;
             case 2:
                 // excluir um contato
+                // verificar se não tem usuário cadastrado
+                if(id <= 0) {
+                    printf("Não há nenhum usuário cadastrado");
+                    return 1;
+                }            
+
+                // informar para o usuário o id do contato
+                printf("Qual é o id que você deseja excluir? \n");
+                scanf("%d", &excluirId);
+
+                indice = excluirId - 1;
+
+                // Verificar se o id existe
+                if(indice >= id) {
+                    printf("Usuario não encontrado");
+                    return 1;
+                }
+
+
+                // mostrar o contato encontrado para o usuário
+                printf("ID: %d\n", excluirId); 
+                printf("Nome: %20s\n", c[indice].nome);
+                printf("Telefone: %17s\n", c[indice].telefone);
+                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);                
+
+                printf("Você deseja excluir esse contato?\n");
+                printf("[1] - Sim \n");
+                printf("[2] - Não \n");
+                scanf("%d", &escolhaExcluirContato);
+
+                switch(escolhaExcluirContato) {
+                    case 1:
+                        printf("Contato excluido com sucesso!\n");
+                        printf("Voltando para o menu principal...\n");
+                        break;
+                    case 2:
+                        printf("Cancelado a opção de excluir contato com sucesso \n");
+                        printf("Voltando para o menu principal...\n");
+                        printf("---------------------------------\n");
+                        break;
+                }
                 break;
             case 3:
-                // alterar um contato
+                // alterar um contato 
                 break;
             case 4:
                 if(id <= 0) {
                     printf("Não há nenhum usuário cadastrado");
-                    return;
+                    return 1;
                 }
 
                 printf("Lista de contatos\n");
