@@ -14,7 +14,7 @@ struct Contato {
 
 // programa principal
 int main() {
-    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0, excluirId = 0, escolhaExcluirContato;
+    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0, excluirId = 0, escolhaExcluirContato = 0;
     struct Contato c[TAMANHO_CONTATOS];
 
     while(opcao != 6) {
@@ -83,8 +83,16 @@ int main() {
 
                 switch(escolhaExcluirContato) {
                     case 1:
+                        // percorre pelos indices do contato a remover e vai até o penultimo cadastrado
+                        for(int i = indice; i < id - 1; i++) {
+                            c[i] = c[i + 1]; // o contato da frente sobrescreve o de trás
+                        }
+
                         printf("Contato excluido com sucesso!\n");
                         printf("Voltando para o menu principal...\n");
+
+                        id--;
+                        usuariosCadastrados--;
                         break;
                     case 2:
                         printf("Cancelado a opção de excluir contato com sucesso \n");
