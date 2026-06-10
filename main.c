@@ -83,6 +83,16 @@ int main() {
 
                 switch(escolhaExcluirContato) {
                     case 1:
+                        for(int i = indice; i < id - 1; i++) {
+                            c[i] = c[i + 1]; // o contato da frente sobrescreve o de trás
+                        }
+
+                        printf("Contato excluido com sucesso!\n");
+                        printf("Voltando para o menu principal...\n");
+
+                        id--;
+                        usuariosCadastrados--;
+
                         printf("Contato excluido com sucesso!\n");
                         printf("Voltando para o menu principal...\n");
                         break;
