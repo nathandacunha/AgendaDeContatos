@@ -14,7 +14,16 @@ struct Contato {
 
 // programa principal
 int main() {
-    int opcao = 0, id = 0, buscarId = 0, indice = 0, usuariosCadastrados = 0, excluirId = 0, escolhaExcluirContato;
+    int opcao = 0;
+    int id = 0; 
+    int buscarId = 0; 
+    int indice = 0;
+    int usuariosCadastrados = 0;
+    int excluirId = 0; 
+    int escolhaExcluirContato = 0;
+    int alterarId = 0;
+    int escolhaAlterarContato = 0;
+    int alterarContato = 0; 
     struct Contato c[TAMANHO_CONTATOS];
 
     while(opcao != 6) {
@@ -39,7 +48,9 @@ int main() {
                 scanf("%s", c[id].telefone);
 
                 // informar o tipo de contato
-                printf("Digite o tipo de contato: \n");
+                printf("Digite o tipo de contato de acordo com as opções abaixo: \n");
+                printf("- Pessoal \n");
+                printf("- Trabalho \n");
                 scanf("%s", c[id].tipoDeContato);
 
                 printf("3--------------------------------3 \n");
@@ -68,8 +79,7 @@ int main() {
                     printf("Usuario não encontrado");
                     return 1;
                 }
-
-
+                
                 // mostrar o contato encontrado para o usuário
                 printf("ID: %d\n", excluirId); 
                 printf("Nome: %20s\n", c[indice].nome);
@@ -105,6 +115,56 @@ int main() {
                 break;
             case 3:
                 // alterar um contato 
+                if(id <= 0) {
+                    printf("Não há nenhum contato registrado");
+                    return 1;
+                }
+
+                // Informar ao usuário o id
+                printf("Digite o id que deseja alterar: \n");
+                scanf("%d", &alterarId);
+                
+                indice = alterarId - 1;
+
+                // verificando se o id existe
+                if(indice >= id) {
+                    printf("Usuário não encontrado");
+                    return 1;
+                }
+
+                // mostrar o contato encontrado para o usuário
+                printf("ID: %d\n", alterarId); 
+                printf("Nome: %20s\n", c[indice].nome);
+                printf("Telefone: %17s\n", c[indice].telefone);
+                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
+                printf("---------------------------------\n");                
+                printf("Você deseja alterar esse contato? \n");
+                printf("[1] - Sim \n");
+                printf("[2] - Não \n");
+                printf("----------------------- \n");
+                scanf("%d", &escolhaAlterarContato);
+
+                switch(escolhaAlterarContato) {
+                    case 1:
+                        printf("Contato encontrado \n");
+                        printf("------------------------- \n");
+                        printf("ID: %d\n", alterarId); 
+                        printf("Nome: %20s\n", c[indice].nome);
+                        printf("Telefone: %17s\n", c[indice].telefone);
+                        printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
+                        printf("---------------------------------\n");            
+                        printf("O que você deseja alterar? \n");
+                        printf("[1] - Nome \n");
+                        printf("[2] - Telefone \n");
+                        printf("[3] - Tipo de contato \n");
+                        printf("[4] - Cancelar \n");
+                        scanf("%d", &alterarContato);
+                        break;
+                    case 2:
+                        printf("Voltando para o menu principal.....");
+                        printf("-----------------------------------");
+                        break;
+                }
                 break;
             case 4:
                 if(id <= 0) {
