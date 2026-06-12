@@ -177,6 +177,14 @@ int main() {
                                 printf("Novo telefone do contato foi atualizado com sucesso! \n");
                                 printf("------------------------------\n");
                                 break;
+                            case 3:
+                                printf("Digite o novo tipo de contato: \n");
+                                scanf("%s", c[indice].tipoDeContato);
+                                printf("-------------------------------\n");
+                                printf("Telefone: %s\n", c[indice].tipoDeContato);
+                                printf("Novo tipo de contato foi atualizado com sucesso! \n");
+                                printf("------------------------------\n");
+                                break;
                         }
                         break;
                     case 2:
