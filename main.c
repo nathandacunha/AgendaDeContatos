@@ -185,11 +185,20 @@ int main() {
                                 printf("Novo tipo de contato foi atualizado com sucesso! \n");
                                 printf("------------------------------\n");
                                 break;
+                            case 4:
+                                printf("Alteração do contato foi cancelado\n");
+                                printf("Voltando para o menu principal...\n");
+                                printf("------------------------------------\n");
+                                break;
+                            default:
+                                printf("Erro desconhecido! Tente mais tarde \n");
+                                printf("------------------------------------\n");
+                                break;
                         }
                         break;
                     case 2:
-                        printf("Voltando para o menu principal.....");
-                        printf("-----------------------------------");
+                        printf("Voltando para o menu principal.....\n");
+                        printf("-----------------------------------\n");
                         break;
                 }
                 break;
