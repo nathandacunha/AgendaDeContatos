@@ -159,6 +159,17 @@ int main() {
                         printf("[3] - Tipo de contato \n");
                         printf("[4] - Cancelar \n");
                         scanf("%d", &alterarContato);
+
+                        switch(alterarContato) {
+                            case 1:
+                                printf("Digite o novo nome do contato: \n");
+                                scanf("%25s", c[indice].nome);
+                                printf("-------------------------------\n");
+                                printf("Nome: %25s\n", c[indice].nome);
+                                printf("Novo nome do contato foi atualizado com sucesso! \n");
+                                printf("------------------------------\n");
+                                break;
+                        }
                         break;
                     case 2:
                         printf("Voltando para o menu principal.....");
