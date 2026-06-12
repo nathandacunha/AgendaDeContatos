@@ -169,6 +169,14 @@ int main() {
                                 printf("Novo nome do contato foi atualizado com sucesso! \n");
                                 printf("------------------------------\n");
                                 break;
+                            case 2:
+                                printf("Digite o novo telefone do contato: \n");
+                                scanf("%s", c[indice].telefone);
+                                printf("-------------------------------\n");
+                                printf("Telefone: %s\n", c[indice].telefone);
+                                printf("Novo telefone do contato foi atualizado com sucesso! \n");
+                                printf("------------------------------\n");
+                                break;
                         }
                         break;
                     case 2:
