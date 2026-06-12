@@ -14,6 +14,7 @@ struct Contato {
 
 // programa principal
 int main() {
+    // declaração de variáveis
     int opcao = 0;
     int id = 0; 
     int buscarId = 0; 
@@ -26,6 +27,7 @@ int main() {
     int alterarContato = 0; 
     struct Contato c[TAMANHO_CONTATOS];
 
+    // menu de interação principal 
     while(opcao != 6) {
         printf("Bem-vindo(a) à Agenda de Contatos!\n");
         printf("3--------------------------------3 \n");
