@@ -21,12 +21,23 @@ int verificarIDCadastrado(int idUser) {
     return 1;
 }
 
+// verificar se o indice é maior que o id
+
 int verificarID(int index, int idUser) {
     if(index >= idUser) {
         printf("Usuário não encontrado.\n");
         return 0;
     }
     return 1;
+}
+
+// exibir o id do contato encontrado
+
+void mostrarContato(int idUser, struct Contato contato) {
+    printf("ID: %d\n", idUser); 
+    printf("Nome: %20s\n", contato.nome);
+    printf("Telefone: %17s\n", contato.telefone);
+    printf("Tipo de contato: %20s\n", contato.tipoDeContato);    
 }
 
 void mensagemDeCancelarExclusao() {
@@ -99,20 +110,13 @@ int main() {
                 indice = excluirId - 1;
 
                 // Verificar se o id existe
-                // if(indice >= id) {
-                //     printf("Usuario não encontrado");
-                //     return 1;
-                // }
                 
                 if(!verificarID(indice, id)) {
                     break;
                 }
 
-                // mostrar o contato encontrado para o usuário
-                printf("ID: %d\n", excluirId); 
-                printf("Nome: %20s\n", c[indice].nome);
-                printf("Telefone: %17s\n", c[indice].telefone);
-                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);                
+                // mostrar o contato encontrado para o usuário                
+                mostrarContato(excluirId, c[indice]);
 
                 printf("Você deseja excluir esse contato?\n");
                 printf("[1] - Sim \n");
@@ -141,9 +145,8 @@ int main() {
                 break;
             case 3:
                 // alterar um contato 
-                if(id <= 0) {
-                    printf("Não há nenhum contato registrado");
-                    return 1;
+                if(!verificarIDCadastrado(id)) {
+                    break;
                 }
 
                 // Informar ao usuário o id
@@ -153,9 +156,8 @@ int main() {
                 indice = alterarId - 1;
 
                 // verificando se o id existe
-                if(indice >= id) {
-                    printf("Usuário não encontrado");
-                    return 1;
+                if(!verificarID(indice, id)) {
+                    break;
                 }
 
                 // mostrar o contato encontrado para o usuário
