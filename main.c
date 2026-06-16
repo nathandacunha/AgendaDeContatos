@@ -112,14 +112,14 @@ int main() {
 
                         id--;
                         usuariosCadastrados--;
-
-                        printf("Contato excluido com sucesso!\n");
-                        printf("Voltando para o menu principal...\n");
                         break;
                     case 2:
                         printf("Cancelado a opção de excluir contato com sucesso \n");
                         printf("Voltando para o menu principal...\n");
                         printf("---------------------------------\n");
+                        break;
+                    default:
+                        printf("Erro! Tente novamente mais tarde");
                         break;
                 }
                 break;
