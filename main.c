@@ -21,6 +21,12 @@ int verificarIDCadastrado(int idUser) {
     return 1;
 }
 
+void mensagemDeCancelarExclusao() {
+    printf("Cancelado a opção de excluir contato com sucesso \n");
+    printf("Voltando para o menu principal...\n");
+    printf("---------------------------------\n");
+}
+
 // programa principal
 int main() {
     // declaração de variáveis
@@ -114,9 +120,7 @@ int main() {
                         usuariosCadastrados--;
                         break;
                     case 2:
-                        printf("Cancelado a opção de excluir contato com sucesso \n");
-                        printf("Voltando para o menu principal...\n");
-                        printf("---------------------------------\n");
+                        mensagemDeCancelarExclusao();
                         break;
                     default:
                         printf("Erro! Tente novamente mais tarde");
