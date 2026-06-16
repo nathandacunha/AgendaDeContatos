@@ -12,10 +12,18 @@ struct Contato {
     char tipoDeContato[20];
 };
 
-// função para verificar a existencia do id
+// função para verificar se tem algum id cadastrado
 int verificarIDCadastrado(int idUser) {
     if(idUser <= 0) {
         printf("Não há nenhum contato cadastrado \n");
+        return 0;
+    }
+    return 1;
+}
+
+int verificarID(int index, int idUser) {
+    if(index >= idUser) {
+        printf("Usuário não encontrado.\n");
         return 0;
     }
     return 1;
@@ -91,11 +99,15 @@ int main() {
                 indice = excluirId - 1;
 
                 // Verificar se o id existe
-                if(indice >= id) {
-                    printf("Usuario não encontrado");
-                    return 1;
-                }
+                // if(indice >= id) {
+                //     printf("Usuario não encontrado");
+                //     return 1;
+                // }
                 
+                if(!verificarID(indice, id)) {
+                    break;
+                }
+
                 // mostrar o contato encontrado para o usuário
                 printf("ID: %d\n", excluirId); 
                 printf("Nome: %20s\n", c[indice].nome);
