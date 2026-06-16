@@ -12,6 +12,15 @@ struct Contato {
     char tipoDeContato[20];
 };
 
+// função para verificar a existencia do id
+int verificarIDCadastrado(int idUser) {
+    if(idUser <= 0) {
+        printf("Não há nenhum contato cadastrado \n");
+        return 0;
+    }
+    return 1;
+}
+
 // programa principal
 int main() {
     // declaração de variáveis
@@ -65,10 +74,9 @@ int main() {
             case 2:
                 // excluir um contato
                 // verificar se não tem usuário cadastrado
-                if(id <= 0) {
-                    printf("Não há nenhum usuário cadastrado");
-                    return 1;
-                }            
+                if(!verificarIDCadastrado(id)) {
+                    break;
+                } 
 
                 // informar para o usuário o id do contato
                 printf("Qual é o id que você deseja excluir? \n");
