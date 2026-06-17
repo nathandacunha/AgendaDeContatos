@@ -1,6 +1,6 @@
 # Agenda de Contatos em C
 
-Uma aplicação simples de Agenda de Contatos desenvolvida em linguagem C, permitindo o gerenciamento de contatos por meio de uma interface em linha de comando. O projeto foi criado com o objetivo de praticar conceitos fundamentais da programação, como estruturas (`struct`), funções, manipulação de arquivos e organização modular do código.
+Uma aplicação simples de Agenda de Contatos desenvolvida em linguagem C, permitindo o gerenciamento de contatos por meio de uma interface em linha de comando. O projeto foi criado com o objetivo de praticar conceitos fundamentais da programação, como a estrutura de dados `struct`, funções, loops, arrays, etc. 
 
 ## Funcionalidades
 
