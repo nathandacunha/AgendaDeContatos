@@ -64,7 +64,7 @@ int main() {
     // menu de interação principal 
     while(opcao != 6) {
         printf("Bem-vindo(a) à Agenda de Contatos!\n");
-        printf("3--------------------------------3 \n");
+        printf("-------------------------------- \n");
         printf("[1] - Adicionar novo contato \n");
         printf("[2] - Excluir um contato \n");
         printf("[3] - Alterar um contato \n");
@@ -248,7 +248,7 @@ int main() {
                 // localizar um contato  
                 if(usuariosCadastrados <= 0) {
                     printf("Não há nenhum usuário cadastrado");
-                    return 1;
+                    break;
                 }                
 
                 printf("Digite o id: \n");
