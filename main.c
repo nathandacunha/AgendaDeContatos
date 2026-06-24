@@ -232,8 +232,8 @@ int main() {
                 break;
             case 4:
                 if(id <= 0) {
-                    printf("Não há nenhum usuário cadastrado");
-                    return 1;
+                    printf("Não há nenhum usuário cadastrado\n");
+                    break;
                 }
 
                 printf("Lista de contatos\n");
@@ -247,7 +247,7 @@ int main() {
             case 5:
                 // localizar um contato  
                 if(usuariosCadastrados <= 0) {
-                    printf("Não há nenhum usuário cadastrado");
+                    printf("Não há nenhum usuário cadastrado \n");
                     break;
                 }                
 
