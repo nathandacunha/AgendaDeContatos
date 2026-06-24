@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define TAMANHO_CONTATOS 50
+#define TAMANHO_CONTATOS 20
 
 // structs
 
@@ -75,6 +75,11 @@ int main() {
 
         switch(opcao) {
             case 1:
+                if(id >= TAMANHO_CONTATOS) {
+                    printf("O limite de contatos foi atingido \n");
+                    break;
+                }
+
                 // Informar o nome do novo contato
                 printf("Digite o nome do novo contato: \n");
                 scanf("%s", c[id].nome);
