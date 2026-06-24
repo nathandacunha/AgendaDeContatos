@@ -257,6 +257,10 @@ int main() {
                 // Converter para índice interno (usuário vê 1, array começa em 0)
                 indice = buscarId - 1;
 
+                if(!verificarID(indice, id)) {
+                    break;
+                }
+
                 printf("ID: %d\n", buscarId); 
                 printf("Nome: %20s\n", c[indice].nome);
                 printf("Telefone: %17s\n", c[indice].telefone);
