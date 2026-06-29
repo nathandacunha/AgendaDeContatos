@@ -72,7 +72,12 @@ int main() {
         printf("[4] - Listar todos os contatos existentes\n");
         printf("[5] - Localizar um contato\n");
         printf("[6] - Sair \n");
-        scanf("%d", &opcao);
+        if (scanf("%d", &opcao) != 1) {
+            printf("Entrada inválida! Digite um número.\n");
+
+            while (getchar() != '\n');
+            continue;
+        }   
 
         switch(opcao) {
             case 1:
