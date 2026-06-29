@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define TAMANHO_CONTATOS 20
 
 // structs
@@ -82,7 +83,10 @@ int main() {
 
                 // Informar o nome do novo contato
                 printf("Digite o nome do novo contato: \n");
-                scanf("%s", c[id].nome);
+                getchar(); // Remove o '\n' deixado pelo scanf anterior
+                fgets(c[id].nome, sizeof(c[id].nome), stdin);
+                c[id].nome[strcspn(c[id].nome, "\n")] = '\0';
+                
 
                 // informar o telefone do novo contato
                 printf("Digite o telefone do novo contato: \n");
