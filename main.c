@@ -103,7 +103,15 @@ int main() {
                 printf("Selecione o tipo de contato:\n");
                 printf("[1] - Pessoal\n");
                 printf("[2] - Trabalho\n");
-                scanf("%d", &opcaoTipo);
+                if (scanf("%d", &opcaoTipo) != 1) {
+                    printf("Entrada inválida! Digite apenas 1 ou 2.\n");
+
+                    while (getchar() != '\n');
+
+                    opcaoTipo = 0;
+                    continue;
+                }
+                    
                  switch(opcaoTipo) {
                     case 1:
                     strcpy(c[indice].tipoDeContato, "Pessoal");
