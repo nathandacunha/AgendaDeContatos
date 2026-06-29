@@ -60,6 +60,7 @@ int main() {
     int alterarId = 0;
     int escolhaAlterarContato = 0;
     int alterarContato = 0; 
+    int opcaoTipo = 0;
     struct Contato c[TAMANHO_CONTATOS];
 
     // menu de interação principal 
@@ -99,16 +100,23 @@ int main() {
 
                 // informar o tipo de contato
                 do {
-                printf("Digite o tipo de contato de acordo com as opções abaixo: \n");
-                printf("- Pessoal \n");
-                printf("- Trabalho \n");
-                scanf("%s", c[id].tipoDeContato);
-                 if (strcmp(c[id].tipoDeContato, "Pessoal") != 0 &&
-                 strcmp(c[id].tipoDeContato, "Trabalho") != 0) {
-                    printf("Tipo de contato inválido! Digite apenas 'Pessoal' ou 'Trabalho'.\n\n");
-                    }
-                    } while (strcmp(c[id].tipoDeContato, "Pessoal") != 0 &&
-                    strcmp(c[id].tipoDeContato, "Trabalho") != 0);
+                printf("Selecione o tipo de contato:\n");
+                printf("[1] - Pessoal\n");
+                printf("[2] - Trabalho\n");
+                scanf("%d", &opcaoTipo);
+                 switch(opcaoTipo) {
+                    case 1:
+                    strcpy(c[indice].tipoDeContato, "Pessoal");
+                    break;
+                    case 2:
+                    strcpy(c[indice].tipoDeContato, "Trabalho");
+                    break;
+                    default:
+                    printf("Opção inválida! Digite apenas '1' ou '2'.\n\n");
+                    break;
+
+                }
+                 } while(opcaoTipo != 1 && opcaoTipo != 2);
 
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
