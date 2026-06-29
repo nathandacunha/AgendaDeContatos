@@ -98,10 +98,17 @@ int main() {
                 scanf("%s", c[id].telefone);
 
                 // informar o tipo de contato
+                do {
                 printf("Digite o tipo de contato de acordo com as opções abaixo: \n");
                 printf("- Pessoal \n");
                 printf("- Trabalho \n");
                 scanf("%s", c[id].tipoDeContato);
+                 if (strcmp(c[id].tipoDeContato, "Pessoal") != 0 &&
+                 strcmp(c[id].tipoDeContato, "Trabalho") != 0) {
+                    printf("Tipo de contato inválido! Digite apenas 'Pessoal' ou 'Trabalho'.\n\n");
+                    }
+                    } while (strcmp(c[id].tipoDeContato, "Pessoal") != 0 &&
+                    strcmp(c[id].tipoDeContato, "Trabalho") != 0);
 
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
@@ -188,13 +195,12 @@ int main() {
 
                 switch(escolhaAlterarContato) {
                     case 1:
-                        printf("Contato encontrado \n");
-                        printf("------------------------- \n");
-                        printf("ID: %d\n", alterarId); 
-                        printf("Nome: %20s\n", c[indice].nome);
-                        printf("Telefone: %17s\n", c[indice].telefone);
-                        printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
-                        printf("---------------------------------\n");            
+                        printf("Contato encontrado\n");
+                        printf("-------------------------\n");
+                        mostrarContato(alterarId, c[indice]);
+                        printf("---------------------------------\n");
+                        
+                                   
                         printf("O que você deseja alterar? \n");
                         printf("[1] - Nome \n");
                         printf("[2] - Telefone \n");
