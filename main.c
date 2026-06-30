@@ -50,6 +50,7 @@ int main() {
         printf("[4] - Listar todos os contatos existentes\n");
         printf("[5] - Localizar um contato\n");
         printf("[6] - Sair \n");
+        
         if (scanf("%d", &opcao) != 1) {
             printf("Entrada inválida! Digite um número.\n");
 
@@ -229,20 +230,21 @@ int main() {
                 }
                 break;
             case 4:
-                if(id <= 0) {
-                    printf("Não há nenhum usuário cadastrado\n");
+                // verifica se não tem um id cadastrado
+                if(!verificarIDCadastrado(id)) {
                     break;
-                }
+                } 
 
                 printf("Lista de contatos\n");
                 listarContato(id, c);
                 break;
             case 5:
                 // localizar um contato  
-                if(usuariosCadastrados <= 0) {
-                    printf("Não há nenhum usuário cadastrado \n");
+
+                // verifica se não tem um id cadastrado
+                if(!verificarIDCadastrado(id)) {
                     break;
-                }                
+                }                 
 
                 printf("Digite o id: \n");
                 scanf("%d", &buscarId);
@@ -250,6 +252,7 @@ int main() {
                 // Converter para índice interno (usuário vê 1, array começa em 0)
                 indice = buscarId - 1;
 
+                // verifica a existência do id
                 if(!verificarID(indice, id)) {
                     break;
                 }
