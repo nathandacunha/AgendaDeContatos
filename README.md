@@ -1,20 +1,22 @@
 # Agenda de Contatos em C
 
-Uma aplicação simples de Agenda de Contatos desenvolvida em linguagem C, permitindo o gerenciamento de contatos por meio de uma interface em linha de comando. O projeto foi criado com o objetivo de praticar conceitos fundamentais da programação, como a estrutura de dados `struct`, funções, loops, arrays, etc. 
+O Agenda de Contatos é uma aplicação desenvolvida em linguagem C durante a disciplina de Algoritmos, com o objetivo de gerenciar contatos por meio de uma interface de linha de comando (Terminal).
+
+Este projeto foi criado para consolidar os principais conceitos de lógica de programação e programação estruturada, aplicando boas práticas de desenvolvimento. Ao longo da implementação, são utilizados os fundamentos da linguagem C, como `funções`, `estruturas de repetições`, `vetores(arrays)`, `struct` e organização de código.
 
 ## Funcionalidades
 
-- incluir novos contatos
-- excluir um contato existente
-- alterar um contato existente
-- listar todos os contatos cadastrados
-- localizar um contato.
+- Incluir novos contatos;
+- Excluir um contato existente;
+- Alterar um contato existente;
+- Listar todos os contatos cadastrados;
+- Localizar um contato.
 
 ## Tecnologias Utilizadas
 
-- Linguagem C
-- Compilador: GCC
-- Biblioteca padrão da linguagem (`stdio.h`, `stdlib.h`)
+- Linguagem C;
+- Compilador: GCC;
+- Biblioteca padrão da linguagem (`stdio.h`, `stdlib.h`, `string.h`)
 
 ## Como Executar
 
@@ -33,8 +35,12 @@ Uma aplicação simples de Agenda de Contatos desenvolvida em linguagem C, permi
    gcc main.c -o main
    ```
 
-## Objetivo
-Este projeto foi desenvolvido para fins acadêmicos e de aprendizado, explorando conceitos essenciais da programação em C, incluindo lógica e boas práticas da engenharia de software.
+## Integrantes
+
+ * Nathan da Cunha: <a href = https://github.com/nathandacunha>Profile</a>
+ * Andre Miranda Flor Filho: <a href = https://github.com/andr4018br>Profile </a>
+
+<strong> Allan Rodrigo Leite - Professor responsável </strong>
 
 ## Licença
 
