@@ -100,31 +100,32 @@ int main() {
 
                 // informar o tipo de contato
                 do {
-                printf("Selecione o tipo de contato:\n");
-                printf("[1] - Pessoal\n");
-                printf("[2] - Trabalho\n");
-                if (scanf("%d", &opcaoTipo) != 1) {
-                    printf("Entrada inválida! Digite apenas 1 ou 2.\n");
-
-                    while (getchar() != '\n');
-
-                    opcaoTipo = 0;
-                    continue;
-                }
+                    printf("Selecione o tipo de contato:\n");
+                    printf("[1] - Pessoal\n");
+                    printf("[2] - Trabalho\n");
                     
-                 switch(opcaoTipo) {
-                    case 1:
-                    strcpy(c[indice].tipoDeContato, "Pessoal");
-                    break;
-                    case 2:
-                    strcpy(c[indice].tipoDeContato, "Trabalho");
-                    break;
-                    default:
-                    printf("Opção inválida! Digite apenas '1' ou '2'.\n\n");
-                    break;
+                    // verifica se o tipo de contato é válido
+                    if (scanf("%d", &opcaoTipo) != 1) {
+                        printf("Entrada inválida! Digite apenas 1 ou 2.\n");
 
-                }
-                 } while(opcaoTipo != 1 && opcaoTipo != 2);
+                        while (getchar() != '\n');
+
+                        opcaoTipo = 0;
+                        continue;
+                    }
+                        
+                    switch(opcaoTipo) {
+                        case 1:
+                            strcpy(c[id].tipoDeContato, "Pessoal");
+                            break;
+                        case 2:
+                            strcpy(c[id].tipoDeContato, "Trabalho");
+                            break;
+                        default:
+                            printf("Opção inválida! Digite apenas '1' ou '2'.\n\n");
+                            break;
+                    }
+                } while(opcaoTipo != 1 && opcaoTipo != 2);
 
                 printf("3--------------------------------3 \n");
                 printf("Contato adicionado com sucesso!\n");
