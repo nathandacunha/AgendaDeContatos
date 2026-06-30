@@ -21,6 +21,8 @@ void mostrarContato(int idUser, const struct Contato *contato);
 void mensagemDeCancelarExclusao();
 void listarContato(int idUser, const struct Contato *contato);
 void alterarContatoNome(int idUser, const struct Contato *contato);
+void alterarContatoTelefone(int idUser, const struct Contato *contato);
+
 // programa principal
 int main() {
     // declaração de variáveis
@@ -202,12 +204,7 @@ int main() {
                                 alterarContatoNome(indice, c);
                                 break;
                             case 2:
-                                printf("Digite o novo telefone do contato: \n");
-                                scanf("%s", c[indice].telefone);
-                                printf("-------------------------------\n");
-                                printf("Telefone: %s\n", c[indice].telefone);
-                                printf("Novo telefone do contato foi atualizado com sucesso! \n");
-                                printf("------------------------------\n");
+                                alterarContatoTelefone(indice, c);
                                 break;
                             case 3:
                                 printf("Digite o novo tipo de contato: \n");
@@ -320,12 +317,23 @@ void listarContato(int idUser, const struct Contato *c) {
     }
 }
 
-// alterar contato nome
+// alterar o nome do contato
 void alterarContatoNome(int idUser, const struct Contato *c) {
     printf("Digite o novo nome do contato: \n");
     scanf("%25s", c[idUser].nome);
     printf("-------------------------------\n");
     printf("Nome: %25s\n", c[idUser].nome);
     printf("Novo nome do contato foi atualizado com sucesso! \n");
+    printf("------------------------------\n");
+}
+
+// altera o telefone do contato
+
+void alterarContatoTelefone(int idUser, const struct Contato *c) {
+    printf("Digite o novo telefone do contato: \n");
+    scanf("%s", c[idUser].telefone);
+    printf("-------------------------------\n");
+    printf("Telefone: %s\n", c[idUser].telefone);
+    printf("Novo telefone do contato foi atualizado com sucesso! \n");
     printf("------------------------------\n");
 }
