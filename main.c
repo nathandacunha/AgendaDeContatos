@@ -20,6 +20,7 @@ int verificarID(int index, int idUser);
 void mostrarContato(int idUser, const struct Contato *contato);
 void mensagemDeCancelarExclusao();
 void listarContato(int idUser, const struct Contato *contato);
+void alterarContatoNome(int idUser, const struct Contato *contato);
 // programa principal
 int main() {
     // declaração de variáveis
@@ -198,12 +199,7 @@ int main() {
 
                         switch(alterarContato) {
                             case 1:
-                                printf("Digite o novo nome do contato: \n");
-                                scanf("%25s", c[indice].nome);
-                                printf("-------------------------------\n");
-                                printf("Nome: %25s\n", c[indice].nome);
-                                printf("Novo nome do contato foi atualizado com sucesso! \n");
-                                printf("------------------------------\n");
+                                alterarContatoNome(indice, c);
                                 break;
                             case 2:
                                 printf("Digite o novo telefone do contato: \n");
@@ -322,4 +318,14 @@ void listarContato(int idUser, const struct Contato *c) {
         printf("Telefone: %17s\n", c[i].telefone);
         printf("Tipo de contato: %20s\n", c[i].tipoDeContato);
     }
+}
+
+// alterar contato nome
+void alterarContatoNome(int idUser, const struct Contato *c) {
+    printf("Digite o novo nome do contato: \n");
+    scanf("%25s", c[idUser].nome);
+    printf("-------------------------------\n");
+    printf("Nome: %25s\n", c[idUser].nome);
+    printf("Novo nome do contato foi atualizado com sucesso! \n");
+    printf("------------------------------\n");
 }
