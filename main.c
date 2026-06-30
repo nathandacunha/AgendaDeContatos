@@ -22,6 +22,7 @@ void mensagemDeCancelarExclusao();
 void listarContato(int idUser, const struct Contato *contato);
 void alterarContatoNome(int idUser, const struct Contato *contato);
 void alterarContatoTelefone(int idUser, const struct Contato *contato);
+void alterarContatoTipoDeContato(int idUser, const struct Contato *c);
 
 // programa principal
 int main() {
@@ -186,6 +187,7 @@ int main() {
 
                 switch(escolhaAlterarContato) {
                     case 1:
+                        printf("------------------------ \n");
                         printf("Contato encontrado\n");
                         printf("-------------------------\n");
                         mostrarContato(alterarId, &c[indice]);
@@ -207,12 +209,7 @@ int main() {
                                 alterarContatoTelefone(indice, c);
                                 break;
                             case 3:
-                                printf("Digite o novo tipo de contato: \n");
-                                scanf("%s", c[indice].tipoDeContato);
-                                printf("-------------------------------\n");
-                                printf("Telefone: %s\n", c[indice].tipoDeContato);
-                                printf("Novo tipo de contato foi atualizado com sucesso! \n");
-                                printf("------------------------------\n");
+                                alterarContatoTipoDeContato(indice, c);   
                                 break;
                             case 4:
                                 printf("Alteração do contato foi cancelado\n");
@@ -335,5 +332,16 @@ void alterarContatoTelefone(int idUser, const struct Contato *c) {
     printf("-------------------------------\n");
     printf("Telefone: %s\n", c[idUser].telefone);
     printf("Novo telefone do contato foi atualizado com sucesso! \n");
+    printf("------------------------------\n");
+}
+
+// altera o tipo de contato do contato
+
+void alterarContatoTipoDeContato(int idUser, const struct Contato *c) {
+    printf("Digite o novo tipo de contato: \n");
+    scanf("%s", c[idUser].tipoDeContato);
+    printf("-------------------------------\n");
+    printf("Telefone: %s\n", c[idUser].tipoDeContato);
+    printf("Novo tipo de contato foi atualizado com sucesso! \n");
     printf("------------------------------\n");
 }
