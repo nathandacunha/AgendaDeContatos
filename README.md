@@ -40,7 +40,7 @@ Este projeto foi criado para consolidar os principais conceitos de lógica de pr
  * Nathan da Cunha: <a href = https://github.com/nathandacunha>Profile</a>
  * Andre Miranda Flor Filho: <a href = https://github.com/andr4018br>Profile </a>
 
-<strong> Allan Rodrigo Leite - Professor responsável </strong>
+ * <strong> Allan Rodrigo Leite - Professor responsável </strong>
 
 ## Licença
 
