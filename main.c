@@ -13,39 +13,12 @@ struct Contato {
     char tipoDeContato[20];
 };
 
-// função para verificar se tem algum id cadastrado
-int verificarIDCadastrado(int idUser) {
-    if(idUser <= 0) {
-        printf("Não há nenhum contato cadastrado \n");
-        return 0;
-    }
-    return 1;
-}
+// prototipo das funções e procedimento
 
-// verificar se o indice é maior que o id
-
-int verificarID(int index, int idUser) {
-    if(index >= idUser) {
-        printf("Usuário não encontrado.\n");
-        return 0;
-    }
-    return 1;
-}
-
-// exibir o id do contato encontrado
-
-void mostrarContato(int idUser, struct Contato contato) {
-    printf("ID: %d\n", idUser); 
-    printf("Nome: %20s\n", contato.nome);
-    printf("Telefone: %17s\n", contato.telefone);
-    printf("Tipo de contato: %20s\n", contato.tipoDeContato);    
-}
-
-void mensagemDeCancelarExclusao() {
-    printf("Cancelado a opção de excluir contato com sucesso \n");
-    printf("Voltando para o menu principal...\n");
-    printf("---------------------------------\n");
-}
+int verificarIDCadastrado(int idUser);
+int verificarID(int index, int idUser);
+void mostrarContato(int idUser, struct Contato contato);
+void mensagemDeCancelarExclusao();
 
 // programa principal
 int main() {
@@ -312,4 +285,40 @@ int main() {
         }
     }
     return 0;
+}
+
+// declarações das funções e procedimento
+
+// função para verificar se tem algum id cadastrado
+int verificarIDCadastrado(int idUser) {
+    if(idUser <= 0) {
+        printf("Não há nenhum contato cadastrado \n");
+        return 0;
+    }
+    return 1;
+}
+
+// verificar se o indice é maior que o id
+
+int verificarID(int index, int idUser) {
+    if(index >= idUser) {
+        printf("Usuário não encontrado.\n");
+        return 0;
+    }
+    return 1;
+}
+
+// exibir o id do contato encontrado
+
+void mostrarContato(int idUser, struct Contato contato) {
+    printf("ID: %d\n", idUser); 
+    printf("Nome: %20s\n", contato.nome);
+    printf("Telefone: %17s\n", contato.telefone);
+    printf("Tipo de contato: %20s\n", contato.tipoDeContato);    
+}
+
+void mensagemDeCancelarExclusao() {
+    printf("Cancelado a opção de excluir contato com sucesso \n");
+    printf("Voltando para o menu principal...\n");
+    printf("---------------------------------\n");
 }
