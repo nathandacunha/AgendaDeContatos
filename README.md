@@ -41,7 +41,3 @@ Este projeto foi criado para consolidar os principais conceitos de lógica de pr
  * Andre Miranda Flor Filho: <a href = https://github.com/andr4018br>Profile </a>
 
  * <strong> Allan Rodrigo Leite - Professor responsável </strong>
-
-## Licença
-
-Este projeto é de código aberto e pode ser utilizado para estudos e aprimoramento pessoal.
