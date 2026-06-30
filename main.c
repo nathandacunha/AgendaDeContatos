@@ -17,9 +17,9 @@ struct Contato {
 
 int verificarIDCadastrado(int idUser);
 int verificarID(int index, int idUser);
-void mostrarContato(int idUser, struct Contato contato);
+void mostrarContato(int idUser, const struct Contato *contato);
 void mensagemDeCancelarExclusao();
-
+void listarContato(int idUser, const struct Contato *contato);
 // programa principal
 int main() {
     // declaração de variáveis
@@ -127,7 +127,7 @@ int main() {
                 }
 
                 // mostrar o contato encontrado para o usuário                
-                mostrarContato(excluirId, c[indice]);
+                mostrarContato(excluirId, &c[indice]);
 
                 printf("Você deseja excluir esse contato?\n");
                 printf("[1] - Sim \n");
@@ -161,7 +161,7 @@ int main() {
                 }
 
                 // Informar ao usuário o id
-                printf("Digite o id que deseja alterar: \n");
+                printf("Digite o id do contato que deseja alterar: \n");
                 scanf("%d", &alterarId);
                 
                 indice = alterarId - 1;
@@ -172,10 +172,8 @@ int main() {
                 }
 
                 // mostrar o contato encontrado para o usuário
-                printf("ID: %d\n", alterarId); 
-                printf("Nome: %20s\n", c[indice].nome);
-                printf("Telefone: %17s\n", c[indice].telefone);
-                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
+                mostrarContato(alterarId, &c[indice]);
+
                 printf("---------------------------------\n");                
                 printf("Você deseja alterar esse contato? \n");
                 printf("[1] - Sim \n");
@@ -187,7 +185,7 @@ int main() {
                     case 1:
                         printf("Contato encontrado\n");
                         printf("-------------------------\n");
-                        mostrarContato(alterarId, c[indice]);
+                        mostrarContato(alterarId, &c[indice]);
                         printf("---------------------------------\n");
                         
                                    
@@ -247,12 +245,7 @@ int main() {
                 }
 
                 printf("Lista de contatos\n");
-                for(int i = 0; i < id; i++) {
-                    printf("ID: %d\n", i + 1); // indice e não ID
-                    printf("Nome: %20s\n", c[i].nome);
-                    printf("Telefone: %17s\n", c[i].telefone);
-                    printf("Tipo de contato: %20s\n", c[i].tipoDeContato);
-                }
+                listarContato(id, c);
                 break;
             case 5:
                 // localizar um contato  
@@ -271,10 +264,7 @@ int main() {
                     break;
                 }
 
-                printf("ID: %d\n", buscarId); 
-                printf("Nome: %20s\n", c[indice].nome);
-                printf("Telefone: %17s\n", c[indice].telefone);
-                printf("Tipo de contato: %20s\n", c[indice].tipoDeContato);
+                mostrarContato(buscarId, &c[indice]);
                 break;
             case 6:
                 printf("Programa encerrado!\n");
@@ -310,15 +300,26 @@ int verificarID(int index, int idUser) {
 
 // exibir o id do contato encontrado
 
-void mostrarContato(int idUser, struct Contato contato) {
+void mostrarContato(int idUser, const struct Contato *contato) {
     printf("ID: %d\n", idUser); 
-    printf("Nome: %20s\n", contato.nome);
-    printf("Telefone: %17s\n", contato.telefone);
-    printf("Tipo de contato: %20s\n", contato.tipoDeContato);    
+    printf("Nome: %20s\n", contato->nome);
+    printf("Telefone: %17s\n", contato->telefone);
+    printf("Tipo de contato: %20s\n", contato->tipoDeContato);    
 }
 
+// exibe a mensagem de cancelamento de excluir contato
 void mensagemDeCancelarExclusao() {
     printf("Cancelado a opção de excluir contato com sucesso \n");
     printf("Voltando para o menu principal...\n");
     printf("---------------------------------\n");
+}
+
+// listar contato
+void listarContato(int idUser, const struct Contato *c) {
+    for(int i = 0; i < idUser; i++) {
+        printf("ID: %d\n", i + 1); // indice e não ID
+        printf("Nome: %20s\n", c[i].nome);
+        printf("Telefone: %17s\n", c[i].telefone);
+        printf("Tipo de contato: %20s\n", c[i].tipoDeContato);
+    }
 }
